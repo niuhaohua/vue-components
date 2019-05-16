@@ -7,7 +7,9 @@
       :style="{width:itemWidth+'px',marginLeft: column == 1?'0':'20px'}"
     >
       <transition-group appear>
-        <div class="column-item" v-for="(item,key) in itemList[column-1]" :key="key">{{item.name+'：'+item.value}}</div>
+        <div class="column-item" v-for="(item,key) in itemList[column-1]" :key="key">
+          <img width="100%" :src="item.url" alt="">
+        </div>
       </transition-group>
     </div>
   </div>
@@ -66,7 +68,7 @@ export default {
         for (let i = 0; i < this.columns; i++) {
           this.itemList[i] = []
         }
-        this.computeColumnLength()
+        // this.computeColumnLength()
       })
     },
     //计算哪列最短
@@ -103,7 +105,7 @@ export default {
   vertical-align: top;
 }
 .column-item {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   /* background:#F5DEB3; */
 }
 .v-enter,
