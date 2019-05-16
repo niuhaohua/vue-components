@@ -38,13 +38,7 @@ export default {
   },
   methods: {
     add() {
-       this.list = [{ url: url[1] },{ url: url[2] },{ url: url[3] },{ url: url[4] }]
-      let i = 0
-      setInterval(() => {
-        this.list = []
         this.list = [{ url: url[1] },{ url: url[2] },{ url: url[3] },{ url: url[4] }]
-        i++
-      }, 3000)
     }
   }
 
