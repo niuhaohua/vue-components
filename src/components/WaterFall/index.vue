@@ -11,7 +11,7 @@
   </div>
 </template>
 <script>
-import { setTimeout, setInterval, clearInterval } from 'timers';
+import { setTimeout, clearTimeout } from 'timers';
 export default {
   name: 'WaterFallComponent',
   props: {
@@ -19,9 +19,9 @@ export default {
       type: Number,
       required: 300
     },
-    list:{
-      type:Array,
-      required:[]
+    list: {
+      type: Array,
+      required: []
     }
   },
 
@@ -31,7 +31,7 @@ export default {
       columns: 3,
       columnLengthMin: 0,
       itemList: [],
-      data:this.list
+      data: this.list
     }
   },
   created() {
@@ -70,21 +70,24 @@ export default {
     //计算哪列最短
     computeColumnLength() {
       let itemArray = this.$refs.waterFallBoxItem
-      let lengthMin = 0
-      for (let i in itemArray) {
-        if (itemArray[i].clientHeight < itemArray[lengthMin].clientHeight) {
-          lengthMin = i
-        }
+      for (let key in this.data) {
+        let timer = setTimeout(() => {
+          let lengthMin = 0
+          for (let i in itemArray) {
+            if (itemArray[i].clientHeight < itemArray[lengthMin].clientHeight) {
+              lengthMin = i
+            }
+          }
+          this.renderData(lengthMin, this.data[key])
+          clearTimeout(timer)
+        }, 10)
       }
-      this.renderData(lengthMin)
     },
     //拼接新数据
-    renderData(col) {
-      for(let key of this.data){
-        this.itemList.push([])
-        this.itemList.pop()
-        this.itemList[col].push(key)
-      }
+    renderData(lengthMin, key) {
+      this.itemList.push([])
+      this.itemList.pop()
+      this.itemList[lengthMin].push(key)
     }
   }
 
@@ -97,7 +100,7 @@ export default {
   /* background: #eea9b8; */
   vertical-align: top;
 }
-.column-item{
+.column-item {
   margin-bottom: 20px;
   /* background:#F5DEB3; */
 }

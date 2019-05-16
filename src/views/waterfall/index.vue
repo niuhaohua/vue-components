@@ -2,16 +2,12 @@
   <div>
     我是页面
     <button @click="add">add</button>
-    <waterfall :width="200" :list="list"/>
+    <water-fall-component :width="200" :list="list"/>
   </div>
 </template>
 <script>
-import Waterfall from '@/components/WaterFall/index'
 export default {
   name: 'WaterFall',
-  components: {
-    Waterfall,
-  },
   data() {
     return {
       list: []
