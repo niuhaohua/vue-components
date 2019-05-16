@@ -6,7 +6,9 @@
       class="waterFall-item"
       :style="{width:itemWidth+'px',marginLeft: column == 1?'0':'20px'}"
     >
-      <div class="column-item" v-for="item in itemList[column-1]">{{item.name+'：'+item.value}}</div>
+      <transition-group appear>
+        <div class="column-item" v-for="(item,key) in itemList[column-1]" :key="key">{{item.name+'：'+item.value}}</div>
+      </transition-group>
     </div>
   </div>
 </template>
@@ -103,5 +105,14 @@ export default {
 .column-item {
   margin-bottom: 20px;
   /* background:#F5DEB3; */
+}
+.v-enter,
+.v-leave-to {
+  opacity: 0;
+  transform: translateY(80px);
+}
+.v-enter-active,
+.v-leave-active {
+  transition: all 0.6s ease;
 }
 </style>
