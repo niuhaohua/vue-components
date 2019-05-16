@@ -2,7 +2,7 @@
   <div>
     我是页面
     <button @click="add">add</button>
-    <water-fall-component :width="200" :list="list"/>
+    <water-fall-component :width="300" :list="list"/>
   </div>
 </template>
 <script>
