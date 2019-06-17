@@ -41,6 +41,11 @@ export const constantRoutes = [
     component: () => import('@/views/404'),
     hidden: true
   },
+  {
+    path: '/cv',
+    component: () => import('@/views/cv/index'),
+    hidden: true
+  },
 {
     path: '/',
     component: Layout,
@@ -49,7 +54,8 @@ export const constantRoutes = [
       path: 'waterFall',
       name: 'WaterFall',
       component: () => import('@/views/waterfall/index'),
-      meta: { title: '瀑布流组件', icon: 'dashboard' }
+      meta: { title: '瀑布流组件', icon: 'dashboard'},
+      
     }]
   },
   // {
