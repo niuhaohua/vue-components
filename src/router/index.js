@@ -29,8 +29,7 @@ import Layout from '@/layout'
  * a base page that does not have permission requirements
  * all roles can be accessed
  */
-export const constantRoutes = [
-  {
+export const constantRoutes = [{
     path: '/login',
     component: () => import('@/views/login/index'),
     hidden: true
@@ -46,7 +45,7 @@ export const constantRoutes = [
     component: () => import('@/views/cv/index'),
     hidden: true
   },
-{
+  {
     path: '/',
     component: Layout,
     redirect: '/waterFall',
@@ -54,8 +53,26 @@ export const constantRoutes = [
       path: 'waterFall',
       name: 'WaterFall',
       component: () => import('@/views/waterfall/index'),
-      meta: { title: '瀑布流组件', icon: 'dashboard'},
-      
+      meta: {
+        title: '瀑布流组件',
+        icon: 'dashboard'
+      },
+
+    }]
+  },
+  {
+    path: '/map',
+    component: Layout,
+    redirect: '/map',
+    children: [{
+      path: 'map',
+      name: 'Map',
+      component: () => import('@/views/map/index'),
+      meta: {
+        title: '地图组件',
+        icon: 'dashboard'
+      },
+
     }]
   },
   // {
@@ -175,12 +192,18 @@ export const constantRoutes = [
   // },
 
   // 404 page must be placed at the end !!!
-  { path: '*', redirect: '/404', hidden: true }
+  {
+    path: '*',
+    redirect: '/404',
+    hidden: true
+  }
 ]
 
 const createRouter = () => new Router({
   // mode: 'history', // require service support
-  scrollBehavior: () => ({ y: 0 }),
+  scrollBehavior: () => ({
+    y: 0
+  }),
   routes: constantRoutes
 })
 

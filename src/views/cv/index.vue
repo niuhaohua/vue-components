@@ -35,7 +35,9 @@
         </div>
         <div></div>
       </div>
-      <div class="cv-right"></div>
+      <div class="cv-right">
+        
+      </div>
     </div>
   </div>
 </template>
