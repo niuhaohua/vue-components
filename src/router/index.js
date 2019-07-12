@@ -63,14 +63,29 @@ export const constantRoutes = [{
   {
     path: '/map',
     component: Layout,
-    redirect: '/map',
+    redirect: '/map/index',
     children: [{
-      path: 'map',
+      path: 'index',
       name: 'Map',
       component: () => import('@/views/map/index'),
       meta: {
         title: '地图组件',
         icon: 'dashboard'
+      },
+
+    }]
+  },
+  {
+    path: '/upload',
+    component: Layout,
+    redirect: '/upload/index',
+    children: [{
+      path: 'index',
+      name: 'UpLoad',
+      component: () => import('@/views/upload/index'),
+      meta: {
+        title: '上传图片',
+        icon: 'example'
       },
 
     }]

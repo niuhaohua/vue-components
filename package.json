@@ -15,7 +15,8 @@
     "svgo": "svgo -f src/icons/svg --config=src/icons/svgo.yml"
   },
   "dependencies": {
-    "axios": "0.18.0",
+    "@tinymce/tinymce-vue": "^2.1.0",
+    "axios": "^0.19.0",
     "element-ui": "2.7.2",
     "js-cookie": "2.2.0",
     "normalize.css": "7.0.0",
@@ -30,12 +31,12 @@
     "@babel/register": "7.0.0",
     "@vue/cli-plugin-babel": "3.6.0",
     "@vue/cli-plugin-eslint": "3.6.0",
-    "@vue/cli-plugin-unit-jest": "3.6.3",
+    "@vue/cli-plugin-unit-jest": "^3.9.0",
     "@vue/cli-service": "3.6.0",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.1",
-    "babel-jest": "23.6.0",
+    "babel-jest": "^24.8.0",
     "chalk": "2.4.2",
     "connect": "3.6.6",
     "eslint": "5.15.3",
@@ -60,5 +61,18 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niuhaohua/vue-components.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/niuhaohua/vue-components/issues"
+  },
+  "homepage": "https://github.com/niuhaohua/vue-components#readme"
 }
